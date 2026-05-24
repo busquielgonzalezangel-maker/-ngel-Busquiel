@@ -1,274 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio ASIR</title>
-
-<style>
-  :root{
-    --bg:#0f172a;
-    --card:#1e293b;
-    --text:#e2e8f0;
-    --accent:#38bdf8;
-  }
-
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
-
-  body{
-    font-family: Arial, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
-  }
-
-  /* HEADER */
-  header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-    animation:fadeDown 0.8s ease forwards;
-  }
-
-  .profile{
-    display:flex;
-    align-items:center;
-    gap:15px;
-  }
-
-  .profile img{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    border:2px solid var(--accent);
-    object-fit:cover;
-    transition:0.4s;
-  }
-
-  .profile img:hover{
-    transform:scale(1.08) rotate(2deg);
-  }
-
-  /* HERO APPLE STYLE */
-  .hero{
-    max-width:900px;
-    margin:60px auto 20px;
-    text-align:center;
-    padding:40px;
-    background:linear-gradient(135deg,#1e293b,#0f172a);
-    border-radius:25px;
-    border:1px solid #334155;
-
-    animation:fadeUp 1s ease forwards;
-    position:relative;
-    overflow:hidden;
-  }
-
-  /* floating glow */
-  .hero::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:var(--accent);
-    filter:blur(120px);
-    opacity:0.15;
-    top:-100px;
-    left:-100px;
-    animation:floatGlow 6s ease-in-out infinite;
-  }
-
-  .hero h1{
-    color:var(--accent);
-    margin-bottom:10px;
-  }
-
-  /* BUTTON */
-  .btn{
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 20px;
-    background:var(--accent);
-    color:#0f172a;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.3s;
-  }
-
-  .btn:hover{
-    transform:translateY(-3px) scale(1.05);
-    box-shadow:0 10px 20px rgba(56,189,248,0.3);
-  }
-
-  /* CONTAINER */
-  .container{
-    width:90%;
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-  }
-
-  .title{
-    color:var(--accent);
-    margin:40px 0 20px;
-    animation:fadeUp 0.8s ease forwards;
-  }
-
-  /* GRID */
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-  }
-
-  /* CARDS APPLE STYLE */
-  .card{
-    background:var(--card);
-    padding:20px;
-    border-radius:18px;
-    border:1px solid transparent;
-    transition: all 0.35s ease;
-    opacity:0;
-    transform:translateY(20px);
-    animation:fadeUpCard 0.8s ease forwards;
-  }
-
-  .card:nth-child(1){animation-delay:0.1s;}
-  .card:nth-child(2){animation-delay:0.2s;}
-  .card:nth-child(3){animation-delay:0.3s;}
-  .card:nth-child(4){animation-delay:0.4s;}
-
-  .card:hover{
-    transform:translateY(-8px) scale(1.02);
-    border:1px solid var(--accent);
-    box-shadow:0 15px 30px rgba(0,0,0,0.4);
-  }
-
-  .card h3{
-    margin-bottom:8px;
-  }
-
-  .card a{
-    color:var(--accent);
-    text-decoration:none;
-  }
-
-  footer{
-    text-align:center;
-    padding:30px;
-    color:#94a3b8;
-    animation:fadeUp 1s ease forwards;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp{
-    from{
-      opacity:0;
-      transform:translateY(20px);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estudiante ASIR</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    to{
-      opacity:1;
-      transform:translateY(0);
-    }
-  }
 
-  @keyframes fadeDown{
-    from{
-      opacity:0;
-      transform:translateY(-20px);
+    body {
+      background: #050914;
+      color: white;
+      overflow-x: hidden;
     }
-    to{
-      opacity:1;
-      transform:translateY(0);
+
+    /* Fondo estilo red */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, #1b3cff33, transparent 40%),
+        radial-gradient(circle at 80% 30%, #00d4ff22, transparent 40%),
+        radial-gradient(circle at 50% 80%, #6a00ff22, transparent 40%);
+      z-index: -1;
     }
-  }
 
-  @keyframes fadeUpCard{
-    to{
-      opacity:1;
-      transform:translateY(0);
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
     }
-  }
 
-  @keyframes floatGlow{
-    0%,100%{transform:translate(0,0);}
-    50%{transform:translate(40px,20px);}
-  }
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-</style>
+    .profile img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid #3b82f6;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #3b82f6;
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 80px;
+      padding: 40px;
+      border: 1px solid #1f2937;
+      border-radius: 20px;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(10, 15, 30, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero span {
+      color: #3b82f6;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      color: #94a3b8;
+    }
+
+    .arrow {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #3b82f6;
+    }
+
+    .cv {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cv button {
+      padding: 12px 20px;
+      border: 1px solid #3b82f6;
+      background: transparent;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .cv button:hover {
+      background: #3b82f6;
+    }
+
+    .projects {
+      margin: 80px auto;
+      width: 80%;
+    }
+
+    .projects h2 {
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(10, 15, 30, 0.7);
+      border: 1px solid #1f2937;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      margin: 60px 0 20px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <div class="profile">
-    <img src="cara.png" alt="foto">
+    <img src="perfil.jpg" alt="perfil">
     <div>
       <strong>Estudiante ASIR</strong><br>
-      <small>Redes • Sistemas • Ciberseguridad</small>
+      <small>Redes · Sistemas · Ciberseguridad</small>
     </div>
   </div>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#projects">Proyectos</a>
+    <a href="#">Contacto</a>
+  </nav>
 </header>
 
-<div class="hero">
-  <h1>Motivado en crecer en el mundo IT 💻</h1>
-  <p>
-    Soy un estudiante de ASIR enfocado en redes, sistemas y ciberseguridad.
-    Busco crecer creando proyectos reales con impacto profesional.
-  </p>
-</div>
+<section class="hero">
+  <h1>Motivado en crecer en el <span>mundo IT</span></h1>
+  <p>Soy un estudiante de ASIR motivado en crear nuevos proyectos para crecer personal y profesionalmente.</p>
+  <div class="arrow">↓</div>
+</section>
 
-<div class="container">
+<section class="cv">
+  <h3>Curriculum</h3>
+  <br>
+  <a href="curriculum.pdf" download>
+    <button>Descargar CV</button>
+  </a>
+</section>
 
-  <h2 class="title">📄 Curriculum</h2>
-  <a class="btn" href="curriculum.pdf" download>Descargar CV</a>
-
-  <h2 class="title">💻 Proyectos</h2>
+<section class="projects" id="projects">
+  <h2>Proyectos</h2>
 
   <div class="grid">
-
     <div class="card">
       <h3>Servidor DHCP</h3>
-      <p>Tutorial de configuración de DHCP en red local.</p>
-      <a href="#">Ver proyecto</a>
+      <p>Tutorial paso a paso para configurar un servidor DHCP en red local.</p>
+      <a href="#">Ver proyecto →</a>
     </div>
 
     <div class="card">
       <h3>Servidor DNS básico</h3>
-      <p>Resolución de nombres en entorno Linux.</p>
-      <a href="#">Ver proyecto</a>
+      <p>Configuración de un servidor DNS para resolución de nombres.</p>
+      <a href="#">Ver proyecto →</a>
     </div>
 
     <div class="card">
       <h3>Servidor de correo</h3>
-      <p>Implementación básica de correo en Linux.</p>
-      <a href="#">Ver proyecto</a>
+      <p>Implementación básica de un servidor de correo en Linux.</p>
+      <a href="#">Ver proyecto →</a>
     </div>
 
     <div class="card">
       <h3>TFG ASIR</h3>
-      <p>Proyecto en desarrollo de infraestructura completa.</p>
-      <span style="color:#94a3b8;">No disponible aún</span>
+      <p>Proyecto en desarrollo de infraestructura completa de empresa simulada.</p>
+      <a href="#">En desarrollo</a>
     </div>
-
   </div>
-
-  <h2 class="title">📫 Contacto</h2>
-  <div class="card">
-    <p>📧 busquielgonzalezangel@gmail.com</p>
-    <p>Busco empleo activamente a tiempo parcial</p>
-  </div>
-
-</div>
+</section>
 
 <footer>
-  Portfolio ASIR • GitHub Pages
+  © 2025 Estudiante ASIR · Hecho con pasión 💙
 </footer>
 
 </body>
