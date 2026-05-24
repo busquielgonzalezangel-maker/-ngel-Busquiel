@@ -2,22 +2,149 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio ASIR</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 40px;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #cbd5e1;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding-bottom: 50px;
+    }
+
+    .section-title {
+      margin: 40px 0 20px;
+      font-size: 24px;
+      color: #38bdf8;
+    }
+
+    /* TARJETAS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border: 1px solid #38bdf8;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #f8fafc;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      background: #0ea5e9;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
-<body style="font-family: Arial; background:#0f172a; color:white; text-align:center; padding:40px;">
+<body>
 
-  <h1 style="color:#38bdf8;">Hola, soy estudiante de ASIR 💻</h1>
+<header>
+  <h1>Hola, soy estudiante de ASIR 💻</h1>
+  <p>Redes • Sistemas • Ciberseguridad 🔐</p>
+</header>
 
-  <p>Me especializo en redes, sistemas y ciberseguridad 🔐</p>
+<div class="container">
 
-  <h2>Proyectos</h2>
-  <p>🔹 Infraestructura de red</p>
-  <p>🔹 Servidores Linux</p>
-  <p>🔹 Firewall + VPN</p>
+  <div class="section-title">🧠 Sobre mí</div>
+  <p style="color:#cbd5e1;">
+    Me apasionan las redes, la administración de sistemas y la seguridad informática.
+    Estoy construyendo proyectos reales para mejorar mis habilidades.
+  </p>
 
-  <h2>Contacto</h2>
-  <p>GitHub: tuusuario</p>
+  <div class="section-title">💻 Proyectos</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Infraestructura de red</h3>
+      <p>Red interna con DHCP, DNS y segmentación básica.</p>
+      <span class="tag">Redes</span>
+    </div>
+
+    <div class="card">
+      <h3>Servidor Linux</h3>
+      <p>Servidor con servicios básicos y usuarios configurados.</p>
+      <span class="tag">Sistemas</span>
+    </div>
+
+    <div class="card">
+      <h3>Firewall + VPN</h3>
+      <p>Seguridad de red con pfSense y acceso remoto seguro.</p>
+      <span class="tag">Seguridad</span>
+    </div>
+
+    <div class="card">
+      <h3>TFG ASIR (en progreso)</h3>
+      <p>Infraestructura completa de empresa simulada.</p>
+      <span class="tag">Proyecto final</span>
+    </div>
+
+  </div>
+
+  <div class="section-title">📫 Contacto</div>
+  <div class="card">
+    <p>GitHub: tuusuario</p>
+    <p>Email: tuemail@correo.com</p>
+  </div>
+
+</div>
+
+<footer>
+  Portfolio ASIR • GitHub Pages
+</footer>
 
 </body>
 </html>
