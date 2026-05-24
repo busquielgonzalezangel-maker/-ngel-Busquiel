@@ -13,19 +13,26 @@
     --accent:#38bdf8;
   }
 
-  body{
+  *{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  body{
     font-family: Arial, sans-serif;
     background:var(--bg);
     color:var(--text);
+    overflow-x:hidden;
   }
 
   /* HEADER */
   header{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     padding:20px 40px;
+    animation:fadeDown 0.8s ease forwards;
   }
 
   .profile{
@@ -38,58 +45,68 @@
     width:55px;
     height:55px;
     border-radius:50%;
-    object-fit:cover;
     border:2px solid var(--accent);
+    object-fit:cover;
+    transition:0.4s;
   }
 
-  .toggle{
-    cursor:pointer;
-    background:var(--card);
-    padding:10px 15px;
-    border-radius:10px;
-    border:none;
-    color:white;
+  .profile img:hover{
+    transform:scale(1.08) rotate(2deg);
   }
 
-  /* HERO */
+  /* HERO APPLE STYLE */
   .hero{
     max-width:900px;
     margin:60px auto 20px;
     text-align:center;
-    padding:30px;
+    padding:40px;
     background:linear-gradient(135deg,#1e293b,#0f172a);
+    border-radius:25px;
     border:1px solid #334155;
-    border-radius:20px;
-    animation:fadeIn 1s ease;
+
+    animation:fadeUp 1s ease forwards;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* floating glow */
+  .hero::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:var(--accent);
+    filter:blur(120px);
+    opacity:0.15;
+    top:-100px;
+    left:-100px;
+    animation:floatGlow 6s ease-in-out infinite;
   }
 
   .hero h1{
     color:var(--accent);
+    margin-bottom:10px;
   }
 
-  @keyframes fadeIn{
-    from{opacity:0; transform:translateY(10px);}
-    to{opacity:1; transform:translateY(0);}
-  }
-
-  /* BOTONES */
+  /* BUTTON */
   .btn{
     display:inline-block;
     margin-top:15px;
     padding:12px 20px;
     background:var(--accent);
     color:#0f172a;
-    border-radius:10px;
+    border-radius:12px;
     text-decoration:none;
     font-weight:bold;
     transition:0.3s;
   }
 
   .btn:hover{
-    transform:scale(1.05);
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 10px 20px rgba(56,189,248,0.3);
   }
 
-  /* SECCIONES */
+  /* CONTAINER */
   .container{
     width:90%;
     max-width:1000px;
@@ -100,26 +117,41 @@
   .title{
     color:var(--accent);
     margin:40px 0 20px;
+    animation:fadeUp 0.8s ease forwards;
   }
 
-  /* PROYECTOS */
+  /* GRID */
   .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
   }
 
+  /* CARDS APPLE STYLE */
   .card{
     background:var(--card);
     padding:20px;
-    border-radius:15px;
-    transition:0.3s;
+    border-radius:18px;
     border:1px solid transparent;
+    transition: all 0.35s ease;
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeUpCard 0.8s ease forwards;
   }
 
+  .card:nth-child(1){animation-delay:0.1s;}
+  .card:nth-child(2){animation-delay:0.2s;}
+  .card:nth-child(3){animation-delay:0.3s;}
+  .card:nth-child(4){animation-delay:0.4s;}
+
   .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-8px) scale(1.02);
     border:1px solid var(--accent);
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+  }
+
+  .card h3{
+    margin-bottom:8px;
   }
 
   .card a{
@@ -130,18 +162,53 @@
   footer{
     text-align:center;
     padding:30px;
-    font-size:14px;
     color:#94a3b8;
+    animation:fadeUp 1s ease forwards;
   }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp{
+    from{
+      opacity:0;
+      transform:translateY(20px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  @keyframes fadeDown{
+    from{
+      opacity:0;
+      transform:translateY(-20px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  @keyframes fadeUpCard{
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  @keyframes floatGlow{
+    0%,100%{transform:translate(0,0);}
+    50%{transform:translate(40px,20px);}
+  }
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="profile">
-    <img src="cara.png" alt="Foto de perfil">
+    <img src="cara.png" alt="foto">
     <div>
       <strong>Estudiante ASIR</strong><br>
       <small>Redes • Sistemas • Ciberseguridad</small>
@@ -149,53 +216,49 @@
   </div>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <h1>Motivado en crecer en el mundo IT 💻</h1>
   <p>
-    Soy un estudiante de ASIR con interés en redes, sistemas y ciberseguridad.  
-    Busco aprender creando proyectos reales que me permitan crecer personal y profesionalmente.
+    Soy un estudiante de ASIR enfocado en redes, sistemas y ciberseguridad.
+    Busco crecer creando proyectos reales con impacto profesional.
   </p>
 </div>
 
 <div class="container">
 
-  <!-- CV -->
   <h2 class="title">📄 Curriculum</h2>
   <a class="btn" href="curriculum.pdf" download>Descargar CV</a>
 
-  <!-- PROYECTOS -->
   <h2 class="title">💻 Proyectos</h2>
 
   <div class="grid">
 
     <div class="card">
       <h3>Servidor DHCP</h3>
-      <p>Tutorial sobre cómo montar un servidor DHCP funcional en red local.</p>
+      <p>Tutorial de configuración de DHCP en red local.</p>
       <a href="#">Ver proyecto</a>
     </div>
 
     <div class="card">
       <h3>Servidor DNS básico</h3>
-      <p>Configuración de un servidor DNS simple para resolución de nombres.</p>
+      <p>Resolución de nombres en entorno Linux.</p>
       <a href="#">Ver proyecto</a>
     </div>
 
     <div class="card">
-      <h3>Servidor de correo básico</h3>
-      <p>Implementación básica de un servidor de correo en entorno Linux.</p>
+      <h3>Servidor de correo</h3>
+      <p>Implementación básica de correo en Linux.</p>
       <a href="#">Ver proyecto</a>
     </div>
 
     <div class="card">
       <h3>TFG ASIR</h3>
-      <p>Proyecto en desarrollo. Infraestructura completa de empresa simulada.</p>
+      <p>Proyecto en desarrollo de infraestructura completa.</p>
       <span style="color:#94a3b8;">No disponible aún</span>
     </div>
 
   </div>
 
-  <!-- CONTACTO -->
   <h2 class="title">📫 Contacto</h2>
   <div class="card">
     <p>📧 busquielgonzalezangel@gmail.com</p>
